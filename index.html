@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>搭伙订餐计算器 - Xing-Chuan</title>
+  <style type="text/css">
+    html{font-size:10px}
+    @media screen and (min-width:321px) and (max-width:375px){html{font-size:11px}}
+    @media screen and (min-width:376px) and (max-width:414px){html{font-size:12px}}
+    @media screen and (min-width:415px) and (max-width:639px){html{font-size:15px}}
+    @media screen and (min-width:640px) and (max-width:719px){html{font-size:20px}}
+    @media screen and (min-width:720px) and (max-width:749px){html{font-size:22.5px}}
+    @media screen and (min-width:750px) and (max-width:799px){html{font-size:23.5px}}
+    @media screen and (min-width:800px){html{font-size:25px}}
+  </style>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      outline: none;
+      font: 1.4rem/1.5 "Microsoft Yahei";
+    }
+    .container {
+      margin: 1rem auto;
+      width: 20rem;
+      height: 20rem;
+      border: .3rem dashed #ccc;
+    }
+    .container > section {
+      margin: 1rem auto;
+      text-align: center;
+    }
+    .container > section > input {
+      text-align: center;
+      font-size: 1.2rem;
+      border-radius: 1.5rem;
+      width: 15rem;
+    }
+    .clacBtn {
+      border: none;
+      padding: .1rem 2.5rem;
+      border-radius: 1.2rem;
+      cursor: pointer;
+      background: #a6ad99;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <section>
+      <label for="single">Single price:</label>
+      <br />
+      <input id="single" type="text" value="26,28,29" />
+    </section>
+    <section>
+      <label for="total">Actual payment price:</label>
+      <br />
+      <input id="total" type="text" value="55"/>
+    </section>
+    <section>
+      <label for="total">Result: single actual price</label>
+      <br />
+      <input id="result" type="text" value="Here is what you need" disabled />
+    </section>
+    <section>
+      <button class="clacBtn">Calculate</button>
+    </section>
+  </div>
+  <script type="text/javascript">
+    console.log(`
+      By: wanggm
+      GitHub: https://github.com/Xing-Chuan
+      `);
+  </script>
+  <script>
+    const clacBtn = document.querySelector('.clacBtn');
+    clacBtn.onclick = function () {
+      // 获取输入的值
+      const singleValues = document.querySelector('#single').value.split(',');
+      const totalPriceTrue = document.querySelector('#total').value;
+      // 条件判断
+      if(!totalPriceTrue || !singleValues[0]) {
+        alert('Please input price');
+      }
+      // 计算订餐总价
+      let totalPrice = 0;
+      singleValues.forEach((item) => {
+        totalPrice += parseInt(item);
+      })
+      // 计算订餐总人数
+      const peopleNum = singleValues.length;
+      // 计算单人实际需要支付价格
+      const singlePriceTrue = singleValues.map((item) => {
+          return parseInt((item/totalPrice*totalPriceTrue)*10)/10;
+      });
+      // 将结果写入页面
+      document.querySelector('#result').value = singlePriceTrue.join(',');
+    }
+  </script>
+</body>
+</html>
