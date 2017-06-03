@@ -68,7 +68,7 @@
   </div>
   <script type="text/javascript">
     console.log(`
-      By: wanggm
+    \\(^o^)/~  By: wanggm
       `);
   </script>
   <script>
@@ -90,7 +90,9 @@
       const peopleNum = singleValues.length;
       // 计算单人实际需要支付价格
       const singlePriceTrue = singleValues.map((item) => {
-          return parseInt((item/totalPrice*totalPriceTrue)*10)/10;
+          // return parseInt((item/totalPrice*totalPriceTrue)*100)/100;
+          // 修改价格显示方式, 价钱计算改成四舍五入, 保留一位小数
+          return Number((item/totalPrice*totalPriceTrue)).toFixed(1);
       });
       // 将结果写入页面
       document.querySelector('#result').value = singlePriceTrue.join(',');
