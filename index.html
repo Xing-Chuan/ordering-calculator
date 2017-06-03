@@ -19,8 +19,10 @@
       padding: 0;
       outline: none;
       font: 1.4rem/1.5 "Microsoft Yahei";
+      /* text-decoration: none; */
     }
     .container {
+      position: relative;
       margin: 1rem auto;
       width: 20rem;
       height: 20rem;
@@ -42,6 +44,17 @@
       border-radius: 1.2rem;
       cursor: pointer;
       background: #a6ad99;
+    }
+    .spec {
+      width: 3rem;
+      height: 2rem;
+      color: #ccc;
+      text-align: center;
+      font: 1rem/2rem "Microsoft Yahei";
+      position: absolute;
+      top: 0;
+      right: 0;
+      margin-left: ;
     }
   </style>
 </head>
@@ -65,6 +78,7 @@
     <section>
       <button class="clacBtn">Calculate</button>
     </section>
+    <a href="https://github.com/Xing-Chuan/ordering-calculatior/blob/master/README.md" class="spec">SPEC</a>
   </div>
   <script type="text/javascript">
     console.log(`
@@ -72,6 +86,7 @@
       `);
   </script>
   <script>
+
     const clacBtn = document.querySelector('.clacBtn');
     clacBtn.onclick = function () {
       // 获取输入的值
