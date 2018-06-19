@@ -2,7 +2,7 @@
   "name": "ordering-calculator",
   "version": "1.0.0",
   "private": true,
-  "description": "这是一个计算搭伙订餐费用的小应用",
+  "description": "这是一个搭伙订餐的计算器",
   "main": "index.js",
   "repository": {
     "type": "git",

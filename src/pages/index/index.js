@@ -55,6 +55,12 @@ export default class Index extends Component {
       result: result.join(',')
     });
   }
+  // shareHandler () {
+  //   console.log('share');
+  //   Taro.showShareMenu({
+  //     withShareTicket: true
+  //   })
+  // }
 
   render () {
     return (
@@ -71,7 +77,7 @@ export default class Index extends Component {
             <Label>实际支付(总额):</Label>
             <Input
               placeholder="55"
-              onBlur={this.setTrueTotalPrice}>
+              onBlur={this.setTureTotalPrice}>
             </Input>
           </View>
           <View>
@@ -83,6 +89,7 @@ export default class Index extends Component {
           </View>
           <View>
             <Button onClick={this.calcHandler}>计算</Button>
+            {/* <Button onClick={this.shareHandler}>分享给朋友</Button> */}
           </View>
         </View>
       </View>
